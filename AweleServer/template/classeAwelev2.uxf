@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>54</x>
+      <y>18</y>
+      <w>153</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+Ligne
+--
+Ligne0
+Ligne1
+
+bg=#d1afff</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>855</x>
+      <y>9</y>
+      <w>351</w>
+      <h>468</h>
+    </coordinates>
+    <panel_attributes>Plateau
+--
+- tabJ1              : Trou[]
+- tabJ2              : Trou[]
+- tabLigne         : Trou[]
+- grainesDepart : int()
+- nbrTrou           : int
+- CheminFichier : String
+--
+CONSTRUCTEUR
++ Plateau()
+--
+METHODES
++ copyTabLigneToTabj()             : void 
++ champsAdverse(int,Ligne)       : boolean
++ remplirPlateau()                       : void
++ afficherPlateauJeu(Trou[],Jeu): void
++ recolter(int)                              : int
++ returnIndice(Ligne,int)             : int
++ estJoueurAffame(Joueur)        : boolean
++ remplirLigne()                           : void
++ returnIndiceJoueur(Ligne)        : int
++ affichGagnant(Joueur,Joueur) : void
++ copyTabjToTabLigne()             : void
++ initPlateauFile()                        : void
++ semer(int)                                 : int
++ recoltable(Trou)                        : boolean
++ estTrouAffame(Trou)                : boolean
++ peutNourrirAdversaire(Joueur) : boolean
+--
+GET SET
++ getTabLigne()   : Trou[]
++ getLigne(Ligne) : Trou[]
++ getNbrTrou()     : int
+
+
+
+bg=#a1afaf</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>423</x>
+      <y>9</y>
+      <w>297</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;DP Singelton&gt;&gt;
+Jeu
+--
+- uniqueInstance : Jeu
+- plateau              : Plateau
+- joueur1              : Joueur
+- joueur2              : Joueur
+- finPartie            : boolean
+- indiceLigne       : int
+- recolte              : int
+- indiceTrou        : int
+--
+CONSTRUCTEUR
+- Jeu(joueurHumain)
+--
+METHODES
++ demarrerPartie()                 : void
++ alterneLigne(ligne)              : Ligne
++ alterneJoueur(Joueur)        : Joueur
++ choisirTrou(Joueur,Ligne)   : int
++ incremnteScore(Joueur,int) : void
+--
+GET SET
++ getInstance(joueurHumain) : Jeu
++ getjoueur1()                         : Joueur
++ getjoueur2()                         : Joueur
+bg=#a1afaf</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>27</x>
+      <y>549</y>
+      <w>279</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>JoueurHumain
+--
++ static scanner : Scanner
+--
+CONSTRUCTEUR
++ JoueurHumain(String)
+--
+METHODES
++ CreerPseudo(String) : void
++ choisirTrou(int)          : int
++ fermerScanner()       : void
+
+bg=#a1afaf</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>27</x>
+      <y>765</y>
+      <w>171</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>MainAwele
+--
++main(args : String[]) : void
+bg=#d1afaf</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>432</x>
+      <y>693</y>
+      <w>360</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Awele:
+Le main Démarre une instance unique Jeu.
+Jeu initialize un plateau et une Ai 2,et on lui passe un joueur.
+Le main demarre une partie avec la méthode demarrerPartie. 
+la partie demarre selon une boucle tant que la partie n'est pas terminée.
+Jeu va demander a tour de role de choisir un un trou a jouer,
+il va tester si le trou est jouable,si oui il mettra le plateau a jour, 
+sinon il redemendera de choisir un autre trou,
+Ensuite il va vérifier l'éventualité d'un gagnat ou d'une égalité , 
+dans ce cas il mettra fin a la boucle.
+Puis il va passer a l'autre joueur et faire de même.
+
+   
+bg=#d1ffff
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>18</x>
+      <y>189</y>
+      <w>261</w>
+      <h>279</h>
+    </coordinates>
+    <panel_attributes>Joueur
+--
+- pseudo : String
+- id          : int
+- score    : int
+- nom      : int
+- ligne     : Ligne
+--
+CONSTRUCTEUR
++ Joueur(String,String,int,int,Ligne)
+--
+METHODE
++ abstract choisirUnTrou(int)   : int
++ incrementeScoreJoueur(int) : void
+--
+GET SET
++ getPseudo()          : String
++ getScore()             : int
++ getLignejoueur()    : Ligne
++ setId(int)                 : int
++ setPseudo(String)  : void
+bg=#a1afaf</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>189</y>
+      <w>171</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1 ou 2
+Joueur
+</panel_attributes>
+    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>711</x>
+      <y>108</y>
+      <w>162</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+Plateau</panel_attributes>
+    <additional_attributes>10.0;20.0;160.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>909</x>
+      <y>567</y>
+      <w>279</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>Trou
+--
+- valeur :int 
+--
+CONSTRUCTEUR
++ Trou(in)
+--
+METHODES
++ isRecoltable() : boolean
++ isAffamed()    : boolean
+--
+GET SET
+setValeur(int) : void
+getValeur()     : int
+bg=#a1afaf</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1026</x>
+      <y>468</y>
+      <w>72</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=nbrTrou
+Trou</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>126</x>
+      <y>459</y>
+      <w>27</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>351</x>
+      <y>549</y>
+      <w>279</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>Computer
+--
+CONSTRUCTEUR
++ Computer()
+--
+METHODES
++ choisirTrou(int)                       : int 
++ generateRandomNumber(int): int
+bg=#a1afaf</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>126</x>
+      <y>459</y>
+      <w>261</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;270.0;40.0;270.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>117</x>
+      <y>90</y>
+      <w>54</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+Ligne</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>360</y>
+      <w>153</w>
+      <h>207</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+instancie 1 Computeur</panel_attributes>
+    <additional_attributes>10.0;210.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>711</x>
+      <y>198</y>
+      <w>162</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+instancie un plateau</panel_attributes>
+    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>432</y>
+      <w>135</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+instancie des Trou</panel_attributes>
+    <additional_attributes>130.0;190.0;10.0;190.0;10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+</diagram>

@@ -1,0 +1,18 @@
+sqlite3 DatabaseScore.db
+
+
+CREATE TABLE [ScoreData] (
+[IdScore] INTEGER PRIMARY KEY,
+[PseudoJ1] NVARCHAR NOT NULL,
+[PseudoJ2] NVARCHAR NOT NULL,
+[Date] DATE NOT NULL,
+[ScoreJ1] INT NOT NULL,
+[ScoreJ2] INT NOT NULL)
+;  
+
+
+select * from ScoreData
+
+
+
+.quit
