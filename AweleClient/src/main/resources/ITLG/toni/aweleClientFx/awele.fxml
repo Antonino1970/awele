@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane prefHeight="729.0" prefWidth="752.0" style="-fx-background-color: transparent;" styleClass="body" stylesheets="@../../../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ITLG.toni.aweleClientFx.AweleControlleur">
+  <padding>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+  </padding>
+   <HBox alignment="CENTER" layoutX="48.0" layoutY="30.0" prefHeight="62.0" prefWidth="682.0">
+      <children>
+         <Button fx:id="disconect" mnemonicParsing="false" onAction="#deconnectPlayer" prefHeight="25.0" prefWidth="164.0" styleClass="bouton_style_left" text="Disconnect" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Button>
+         <TextField fx:id="monNom" prefHeight="39.0" prefWidth="191.0" promptText="Your Name" styleClass="yourName_field" stylesheets="@../../../css/style.css">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </TextField>
+         <Button fx:id="connect" mnemonicParsing="false" onAction="#connectPlayer" prefHeight="39.0" prefWidth="157.0" styleClass="bouton_style_right" text="Connect" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Button>
+      </children>
+   </HBox>
+   <TextFlow fx:id="sortiePrintJ2" layoutX="114.0" layoutY="100.0" prefHeight="112.0" prefWidth="510.0" styleClass="text_container" textAlignment="CENTER" />
+   <HBox alignment="CENTER" layoutX="36.0" layoutY="204.0" prefHeight="70.0" prefWidth="626.0">
+      <children>
+         <Label fx:id="nomJoueur2" prefHeight="31.0" prefWidth="271.0" text="Joueur en attente">
+            <font>
+               <Font name="System Bold" size="20.0" />
+            </font>
+            <textFill>
+               <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REFLECT" radius="0.5">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.4431372582912445" green="0.0784313753247261" blue="0.8509804010391235" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.9215686321258545" green="0.686274528503418" blue="0.686274528503418" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </RadialGradient>
+            </textFill>
+         </Label>
+         <Label fx:id="hisTurn" prefHeight="17.0" prefWidth="155.0" text="No turn" textFill="#db1818">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Label>
+         <Label alignment="CENTER" prefHeight="30.0" prefWidth="176.0" text="Score ">
+            <font>
+               <Font name="System Bold" size="20.0" />
+            </font>
+            <textFill>
+               <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REFLECT" radius="0.5">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.9352338910102844" green="0.5833333134651184" blue="0.9473684430122375" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.971280038356781" green="0.9691764116287231" blue="0.9736841917037964" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </RadialGradient>
+            </textFill>
+         </Label>
+         <Label fx:id="score2" prefHeight="30.0" prefWidth="46.0" text="0">
+            <font>
+               <Font name="System Bold" size="20.0" />
+            </font>
+            <textFill>
+               <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REFLECT" radius="0.5">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.9352338910102844" green="0.5833333134651184" blue="0.9473684430122375" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.971280038356781" green="0.9691764116287231" blue="0.9736841917037964" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </RadialGradient>
+            </textFill>
+         </Label>
+      </children>
+   </HBox>
+
+  <Pane fx:id="board" layoutX="36.0" layoutY="264.0" maxHeight="-1.0" maxWidth="-1.0" prefHeight="260.0" prefWidth="710.0" styleClass="form_container">
+    <children>
+      <Button id="1" fx:id="b21" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="140.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="60.0" prefWidth="60.0" styleClass="crystal-ball-button" stylesheets="@../../../css/style.css" text="4" textAlignment="CENTER" textOverrun="CLIP">
+        <font>
+          <Font name="System Bold" size="20.0" />
+        </font>
+      </Button>
+      <Button id="2" fx:id="b22" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="155.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="60.0" prefWidth="60.0" styleClass="crystal-ball-button" stylesheets="@../../../css/style.css" text="4" textAlignment="CENTER" textOverrun="CLIP">
+        <font>
+          <Font name="System Bold" size="20.0" />
+        </font>
+      </Button>
+      <Button id="3" fx:id="b23" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="280.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="60.0" prefWidth="60.0" styleClass="crystal-ball-button" stylesheets="@../../../css/style.css" text="4" textAlignment="CENTER" textOverrun="CLIP">
+        <font>
+          <Font name="System Bold" size="20.0" />
+        </font>
+      </Button>
+      <Button id="4" fx:id="b24" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="370.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="60.0" prefWidth="60.0" styleClass="crystal-ball-button" stylesheets="@../../../css/style.css" text="4" textAlignment="CENTER" textOverrun="CLIP">
+        <font>
+          <Font name="System Bold" size="20.0" />
+        </font>
+      </Button>
+      <Button id="5" fx:id="b25" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="460.0" layoutY="155.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="60.0" prefWidth="60.0" styleClass="crystal-ball-button" stylesheets="@../../../css/style.css" text="4" textAlignment="CENTER" textOverrun="CLIP">
+        <font>
+          <Font name="System Bold" size="20.0" />
+        </font>
+      </Button>
+      <Button id="6" fx:id="b26" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="550.0" layoutY="140.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="60.0" prefWidth="60.0" styleClass="crystal-ball-button" stylesheets="@../../../css/style.css" text="4" textAlignment="CENTER" textOverrun="CLIP">
+        <font>
+          <Font name="System Bold" size="20.0" />
+        </font>
+      </Button>
+      <Button id="bouton1-6" fx:id="b16" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" styleClass="crystal-ball-button" stylesheets="@../../../css/style.css" text="4" textAlignment="CENTER" textOverrun="CLIP">
+        <font>
+          <Font name="System Bold" size="20.0" />
+        </font>
+      </Button>
+      <Button id="bouton1-5" fx:id="b12" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="460.0" layoutY="35.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" styleClass="crystal-ball-button" stylesheets="@../../../css/style.css" text="4" textAlignment="CENTER" textOverrun="CLIP">
+        <font>
+          <Font name="System Bold" size="20.0" />
+        </font>
+      </Button>
+      <Button id="bouton1-4" fx:id="b15" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="35.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" styleClass="crystal-ball-button" stylesheets="@../../../css/style.css" text="4" textAlignment="CENTER" textOverrun="CLIP">
+        <font>
+          <Font name="System Bold" size="20.0" />
+        </font>
+      </Button>
+      <Button id="bouton1-3" fx:id="b14" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="280.0" layoutY="20.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" styleClass="crystal-ball-button" stylesheets="@../../../css/style.css" text="4" textAlignment="CENTER" textOverrun="CLIP">
+        <font>
+          <Font name="System Bold" size="20.0" />
+        </font>
+      </Button>
+      <Button id="bouton1-2" fx:id="b13" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="370.0" layoutY="20.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" styleClass="crystal-ball-button" stylesheets="@../../../css/style.css" text="4" textAlignment="CENTER" textOverrun="CLIP">
+        <font>
+          <Font name="System Bold" size="20.0" />
+        </font>
+      </Button>
+      <Button id="bouton1-1" fx:id="b11" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="550.0" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" styleClass="crystal-ball-button" stylesheets="@../../../css/style.css" text="4" textAlignment="CENTER" textOverrun="CLIP">
+        <font>
+          <Font name="System Bold" size="20.0" />
+        </font>
+      </Button>
+    </children>
+  </Pane>
+   <HBox alignment="CENTER" layoutX="43.0" layoutY="518.0" prefHeight="70.0" prefWidth="626.0">
+      <children>
+         <Label fx:id="nomJoueur1" prefHeight="31.0" prefWidth="270.0" text="Joueur en attente">
+            <font>
+               <Font name="System Bold" size="20.0" />
+            </font>
+            <textFill>
+               <RadialGradient centerX="0.5220994475138121" centerY="0.5284360189573459" cycleMethod="REFLECT" radius="0.5">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.6431372761726379" green="0.30980393290519714" blue="0.8392156958580017" />
+                        </color>
+                     </Stop>
+                     <Stop offset="0.006711409395973154">
+                        <color>
+                           <Color red="0.6431372761726379" green="0.30980393290519714" blue="0.8392156958580017" />
+                        </color>
+                     </Stop>
+                     <Stop offset="0.46036585365853655">
+                        <color>
+                           <Color red="0.8947368264198303" green="0.7414717078208923" blue="0.7414717078208923" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.7701734304428101" green="0.09807504713535309" blue="0.9210526347160339" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </RadialGradient>
+            </textFill>
+         </Label>
+         <Label fx:id="myturn" prefHeight="35.0" prefWidth="184.0" text="No turn">
+            <textFill>
+               <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.8552631735801697" green="0.07127192616462708" blue="0.07127192616462708" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.9333333373069763" green="0.2862745225429535" blue="0.2862745225429535" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </LinearGradient>
+            </textFill>
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Label>
+        <Label prefHeight="30.0" prefWidth="140.0" text="My score ">
+          <font>
+            <Font name="System Bold" size="20.0" />
+          </font>
+            <textFill>
+               <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REFLECT" radius="0.5">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="1.0" green="0.9675925970077515" blue="0.9675925970077515" />
+                        </color>
+                     </Stop>
+                     <Stop offset="0.9115853658536586">
+                        <color>
+                           <Color red="0.7450292110443115" green="0.18859648704528809" blue="0.9473684430122375" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.7450292110443115" green="0.18859648704528809" blue="0.9473684430122375" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </RadialGradient>
+            </textFill>
+        </Label>
+        <Label fx:id="score1" prefHeight="30.0" prefWidth="42.0" text="0">
+          <font>
+            <Font name="System Bold" size="20.0" />
+          </font>
+            <textFill>
+               <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REFLECT" radius="0.5">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.9352338910102844" green="0.5833333134651184" blue="0.9473684430122375" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.971280038356781" green="0.9691764116287231" blue="0.9736841917037964" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </RadialGradient>
+            </textFill>
+        </Label>
+      </children>
+   </HBox>
+  <TextFlow fx:id="sortiePrintJ1" layoutX="103.0" layoutY="594.0" prefHeight="98.0" prefWidth="526.0" styleClass="text_container" stylesheets="@../../../css/style.css" textAlignment="CENTER" />
+   <HBox layoutX="43.0" layoutY="717.0" prefHeight="18.0" prefWidth="157.0">
+      <children>
+         <Label prefHeight="28.0" prefWidth="52.0" styleClass="yourName_field" text="  mon Id">
+            <textFill>
+               <RadialGradient centerX="0.5331491712707183" centerY="0.518957345971564" cycleMethod="REFLECT" focusAngle="54.25" focusDistance="-0.13793103448275867" radius="0.3620689655172414">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.9210526347160339" green="0.9082602262496948" blue="0.9082602262496948" />
+                        </color>
+                     </Stop>
+                     <Stop offset="0.006711409395973154">
+                        <color>
+                           <Color red="0.6431372761726379" green="0.30980393290519714" blue="0.8392156958580017" />
+                        </color>
+                     </Stop>
+                     <Stop offset="0.46036585365853655">
+                        <color>
+                           <Color red="0.8947368264198303" green="0.7414717078208923" blue="0.7414717078208923" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.9473684430122375" green="0.9078947305679321" blue="0.9473684430122375" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </RadialGradient>
+            </textFill>
+         </Label>
+         <Label fx:id="monID" prefHeight="28.0" prefWidth="20.0" styleClass="yourName_field" text="-1">
+            <textFill>
+               <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.9736841917037964" green="0.9601607918739319" blue="0.9601607918739319" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.6431372761726379" green="0.30980393290519714" blue="0.8392156958580017" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </RadialGradient>
+            </textFill>
+         </Label>
+         <Label prefHeight="28.0" prefWidth="70.0" styleClass="yourName_field" text="Game state">
+            <textFill>
+               <RadialGradient centerX="0.5331491712707183" centerY="0.518957345971564" cycleMethod="REFLECT" focusAngle="54.25" focusDistance="-0.13793103448275867" radius="0.3620689655172414">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.6431372761726379" green="0.30980393290519714" blue="0.8392156958580017" />
+                        </color>
+                     </Stop>
+                     <Stop offset="0.46036585365853655">
+                        <color>
+                           <Color red="0.8947368264198303" green="0.7414717078208923" blue="0.7414717078208923" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.9736841917037964" green="0.9601607918739319" blue="0.9601607918739319" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </RadialGradient>
+            </textFill>
+         </Label>
+         <Label fx:id="status" prefHeight="28.0" prefWidth="25.0" styleClass="yourName_field" text="-1">
+            <textFill>
+               <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.9473684430122375" green="0.9166666865348816" blue="0.9166666865348816" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.6431372761726379" green="0.30980393290519714" blue="0.8392156958580017" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </RadialGradient>
+            </textFill>
+         </Label>
+      </children>
+   </HBox>
+   <Button fx:id="start" layoutX="299.0" layoutY="707.0" mnemonicParsing="false" onAction="#startStop" prefHeight="51.0" prefWidth="181.0" styleClass="start_stop" text="Start/Stop">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Button>
+   <Button fx:id="refresh" layoutX="702.0" layoutY="631.0" mnemonicParsing="false" onAction="#refresh" styleClass="start_stop" text="refresh" visible="false">
+      <textFill>
+         <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0">
+            <stops>
+               <Stop>
+                  <color>
+                     <Color red="0.8552631735801697" green="0.07127192616462708" blue="0.07127192616462708" />
+                  </color>
+               </Stop>
+               <Stop offset="1.0">
+                  <color>
+                     <Color />
+                  </color>
+               </Stop>
+            </stops>
+         </LinearGradient>
+      </textFill></Button>
+   <Button fx:id="scoreTab" layoutX="628.0" layoutY="688.0" mnemonicParsing="false" onAction="#getTabScore" prefHeight="39.0" prefWidth="149.0" styleClass="bouton_style_up" text="Tableau des scores">
+      <textFill>
+         <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0">
+            <stops>
+               <Stop>
+                  <color>
+                     <Color red="0.8552631735801697" green="0.07127192616462708" blue="0.07127192616462708" />
+                  </color>
+               </Stop>
+               <Stop offset="1.0">
+                  <color>
+                     <Color />
+                  </color>
+               </Stop>
+            </stops>
+         </LinearGradient>
+      </textFill>
+   </Button>
+   <TextField fx:id="nameScore" alignment="CENTER" layoutX="628.0" layoutY="726.0" prefHeight="39.0" prefWidth="149.0" promptText="Name" styleClass="bouton_style_down" stylesheets="@../../../css/style.css">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </TextField>
+
+
+</AnchorPane>
